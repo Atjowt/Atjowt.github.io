@@ -1,0 +1,18 @@
+precision mediump float;
+
+varying vec2 p;
+
+void main(void) {
+	if (dot(p, p) > 1.0) discard;
+	gl_FragColor = vec4(p, 1.0, 1.0);
+}
+precision mediump float;
+
+attribute vec4 aPos;
+
+varying vec2 p;
+
+void main(void) {
+	gl_Position = vec4(aPos.xy, 0.0, 1.0);
+	p = aPos.zw * 2.0 - 1.0;
+}
